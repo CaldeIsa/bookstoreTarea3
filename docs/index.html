@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore - Gestión de Autores y Editoriales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Bookstore</h1>
+            <p class="subtitle">Sistema de Gestión de Autores y Editoriales</p>
+            <button id="refreshBtn" class="refresh-btn">🔄 Actualizar Datos</button>
+        </header>
+
+        <div class="notification" id="notification"></div>
+
+        <!-- Sección de Autores -->
+        <section class="section">
+            <div class="section-header">
+                <h2>👤 Autores</h2>
+                <button class="btn btn-primary" onclick="showAuthorForm()">+ Agregar Autor</button>
+            </div>
+
+            <!-- Formulario de Autor -->
+            <div id="authorFormContainer" class="form-container" style="display: none;">
+                <h3 id="authorFormTitle">Nuevo Autor</h3>
+                <form id="authorForm">
+                    <input type="hidden" id="authorId">
+                    <div class="form-group">
+                        <label for="authorName">Nombre:</label>
+                        <input type="text" id="authorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorCountry">País:</label>
+                        <input type="text" id="authorCountry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorBirthYear">Año de Nacimiento:</label>
+                        <input type="number" id="authorBirthYear" required min="1800" max="2024">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-secondary" onclick="hideAuthorForm()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de Autores -->
+            <div id="authorsList" class="items-list">
+                <p class="loading">Cargando autores...</p>
+            </div>
+        </section>
+
+        <!-- Sección de Editoriales -->
+        <section class="section">
+            <div class="section-header">
+                <h2>🏢 Editoriales</h2>
+                <button class="btn btn-primary" onclick="showPublisherForm()">+ Agregar Editorial</button>
+            </div>
+
+            <!-- Formulario de Editorial -->
+            <div id="publisherFormContainer" class="form-container" style="display: none;">
+                <h3 id="publisherFormTitle">Nueva Editorial</h3>
+                <form id="publisherForm">
+                    <input type="hidden" id="publisherId">
+                    <div class="form-group">
+                        <label for="publisherName">Nombre:</label>
+                        <input type="text" id="publisherName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="publisherCountry">País:</label>
+                        <input type="text" id="publisherCountry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="publisherFoundedYear">Año de Fundación:</label>
+                        <input type="number" id="publisherFoundedYear" required min="1800" max="2024">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-secondary" onclick="hidePublisherForm()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de Editoriales -->
+            <div id="publishersList" class="items-list">
+                <p class="loading">Cargando editoriales...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
